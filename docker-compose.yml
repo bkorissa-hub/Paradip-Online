@@ -1,0 +1,36 @@
+services:
+  client:
+    build:
+      context: ./POL_FE
+      dockerfile: Dockerfile
+    container_name: client
+    # image: itsadi24/pol-client
+    ports:
+      - '80'
+    environment:
+      - REACT_APP_BACKEND_URL=/api
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ./POL_BE
+      dockerfile: Dockerfile
+    container_name: server
+    # image: itsadi24/pol-server
+    ports:
+      - '5000'
+    env_file:
+      - ./POL_BE/.env
+
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    container_name: proxy
+    # image: itsadi24/pol-proxy
+    ports:
+      - '80:80'
+    depends_on:
+      - client
+      - server

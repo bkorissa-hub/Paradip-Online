@@ -1,0 +1,47 @@
+# Git files
+.git
+.gitignore
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Node modules (will be installed in container)
+node_modules
+npm-debug.log*
+
+# Build outputs
+dist
+build
+.next
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation (not needed in container)
+*.md
+!README.md
+
+# Docker files
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Test files
+coverage
+.nyc_output
+*.test.js
+*.spec.js
+
+# Logs
+logs
+*.log
